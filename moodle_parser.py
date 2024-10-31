@@ -86,7 +86,7 @@ def get_active_courses_ids(session, user_id):
 def sum_kr(list):
     ret = {
         "score": 0,
-        "skip": 0
+        "skipped": 0
     }
 
     for e in list:
