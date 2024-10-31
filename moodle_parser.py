@@ -115,7 +115,7 @@ def populate_stat(course_id, course_name, first, second):
     global stat
     c = str(course_id)
     totalCourse = sum_kr([first, second])
-    stat["timestamp"] = time.time()
+    stat["timestamp"] = round(time.time())
     stat["courses"][c] = {
         "name": course_name,
         "first": first,
