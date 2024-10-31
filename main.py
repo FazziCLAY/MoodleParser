@@ -100,11 +100,15 @@ def sum_kr(list):
         except:
             pass
 
-
     return ret
 
 
 stat = {}
+
+
+def get_current_statistic():
+    global stat
+    return stat
 
 
 def populate_stat(course_id, course_name, first, second):
@@ -147,7 +151,7 @@ def setup_stat():
     }
 
 
-def main():
+def main(write_to_json_file=True):
     setup_stat()
     s = auth_moodle(config.EOS_AUTH_LOGIN, config.EOS_AUTH_PASSWORD, config.EOS_AUTH_URL)
     user_id = get_user_id(s)
@@ -181,9 +185,10 @@ def main():
             print(f"Первая КР: {firstKr}")
             print(f"Вторая КР: {secondKr}")
 
-    filename = "result.json"
-    print(f"Write to file: {filename}")
-    json.dump(stat, open(filename, 'w'), indent=2, sort_keys=True, ensure_ascii=False)
+    if write_to_json_file:
+        filename = "result.json"
+        print(f"Write to file: {filename}")
+        json.dump(stat, open(filename, 'w'), indent=2, sort_keys=True, ensure_ascii=False)
 
 
 if __name__ == '__main__':
