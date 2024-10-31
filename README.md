@@ -42,3 +42,6 @@
   }
 }
 ```
+
+# Thanks
+- ❤️ [@razdvathree ](https://github.com/razdvathree) - разобрался в том как залогинеться в eos2 programmatically
